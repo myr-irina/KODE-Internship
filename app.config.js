@@ -7,7 +7,7 @@ export default ({ config }) => {
   //
   // Потому здесь он запускается из отдельного файла, чтобы
   // по возможности не мешать основной работе приложения.
-  if (process.env.REACT_NATIVE_IS_STORYBOOK === 'true') {
+  if (true) {
     return { ...config, entryPoint: './storybook' };
   }
   return config;

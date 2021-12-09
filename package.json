@@ -6,24 +6,25 @@
     "ios": "rnstl && expo start --ios",
     "web": "rnstl && expo start --web",
     "eject": "expo eject",
-    "storybook": "rnstl && REACT_NATIVE_IS_STORYBOOK=true expo start",
+    "storybook": "rnstl && start-storybook",
     "build-storybook": "rnstl && build-storybook",
     "update-icons": "ts-node-transpile-only --project node.tsconfig.json scripts/transform-svg/transform-svg.ts"
   },
   "dependencies": {
     "@react-navigation/native": "^6.0.4",
     "@react-navigation/native-stack": "^6.2.2",
-    "expo": "^43.0.0",
+    "expo": "^43.0.4",
     "expo-app-loading": "~1.2.1",
     "expo-font": "~10.0.3",
     "expo-status-bar": "~1.1.0",
     "react": "17.0.1",
     "react-dom": "17.0.1",
-    "react-native": "0.64.2",
+    "react-native": "0.64.3",
     "react-native-safe-area-context": "3.3.2",
     "react-native-screens": "~3.8.0",
     "react-native-svg": "12.1.1",
     "react-native-web": "0.17.1",
+    "storybook": "^6.4.9",
     "styled-components": "^5.3.1"
   },
   "devDependencies": {
@@ -56,5 +57,10 @@
       "outputFile": "./storybook/storyLoader.js"
     }
   },
-  "private": true
+  "private": true,
+  "name": "react-native-styled-components",
+  "version": "1.0.0",
+  "repository": "https://github.com/KODE-Frontend-Interships/lesson-3-stylization-myr-irina.git",
+  "author": "Irina <myr-irina2@yandex.ru>",
+  "license": "MIT"
 }
