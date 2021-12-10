@@ -1,4 +1,6 @@
 import { ComponentProps } from 'react';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+
 
 import { ProfileTemplate } from '../../templates';
 import { ProfileInfo } from '../../molecules';
@@ -10,8 +12,10 @@ export type TProfilePage = {
 };
 
 export const ProfilePage = ({ profileInfo, menu }: TProfilePage) => (
-  <ProfileTemplate
-    profileInfo={<ProfileInfo {...profileInfo} />}
-    menu={<MenuList {...menu} />}
-  />
+  <SafeAreaProvider>
+    <ProfileTemplate
+      profileInfo={<ProfileInfo {...profileInfo} />}
+      menu={<MenuList {...menu} />}
+    />
+  </SafeAreaProvider>
 );
