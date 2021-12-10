@@ -2,11 +2,25 @@ import React, { ReactNode } from 'react';
 import { Text, View } from 'react-native';
 import { styled } from '@shared/ui/theme';
 import { Typography } from '../../typography';
+import { TouchableOpacity } from 'react-native';
 
-const Wrapper = styled.View`
+const Wrapper = styled(TouchableOpacity)`
   padding: ${({ theme }) => theme.spacing(2)}px;
   flex-direction: row;
   align-items: center;
+`;
+
+const Title = styled(Typography)`
+  margin-left: ${({ theme }) => theme.spacing(2)}px;
+  flex: 1;
+`;
+
+const HSpacing = styled.View<{ width?: number }>`
+  width: ${({ theme, width }) => width ?? theme.spacing(1)}px;
+`;
+
+const Right = styled.View`
+  margin-left: auto;
 `;
 
 export type TMenuItem = {
@@ -17,8 +31,10 @@ export type TMenuItem = {
 };
 
 export const MenuItem = ({ left, title, right, onPress }: TMenuItem) => (
-  <Wrapper>
+  <Wrapper onPress={onPress} activeOpacity={0.7}>
     {left}
-    <Typography variant="body20">{title}</Typography>
+    <Title variant="body20">{title}</Title>
+    <HSpacing />
+    <Right>{right}</Right>
   </Wrapper>
 );

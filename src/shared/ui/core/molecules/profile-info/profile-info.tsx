@@ -32,6 +32,6 @@ export const ProfileInfo = ({ uri, userName, phone }: TProfileInfo) => (
   <Wrapper>
     <Avatar source={{ uri }} />
     <UserName variant="subtitle">{userName}</UserName>
-    <Typography variant='caption2'>{phone}</Typography>
+    <Typography variant="caption2">{phone}</Typography>
   </Wrapper>
 );
