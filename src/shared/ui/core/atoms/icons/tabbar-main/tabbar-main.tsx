@@ -6,7 +6,7 @@ type Props = {
   color?: string;
 };
 
-export const TabBaRMain = ({ size = 24, color }: Props) => (
+export const TabBarMain = ({ size = 24, color }: Props) => (
   <Svg width={size} height={size} fill="none">
     <Path
       fillRule="evenodd"
