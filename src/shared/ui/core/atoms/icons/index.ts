@@ -6,6 +6,7 @@ import { ChevronRight } from './chevron-right/chevron-right';
 import {TabBarMain} from './tabbar-main/tabbar-main';
 import {TabBarPayment} from './tabbar-payment/tabbar-payment';
 import { TabBarBank } from './tabbar-bank/tabbar-bank';
+import { TabBarProfile } from './tabbar-profile/tabbar-profile';
 
 export const Icons = {
   Settings,
@@ -16,4 +17,5 @@ export const Icons = {
   TabBarMain,
   TabBarPayment,
   TabBarBank,
+  TabBarProfile,
 };
