@@ -8,7 +8,6 @@ import { TabBarItem } from '../../molecules';
 const Wrapper = styled(TouchableOpacity)`
   flex-direction: row;
   align-items: center;
-  flex: 1;
 `;
 
 type TTabBarItemProps = ComponentProps<typeof TabBarItem>;
@@ -19,10 +18,8 @@ export type TTabBarList = {
 
 export const TabBarList = ({ items }: TTabBarList) => (
   <Wrapper>
-    {items.map((item, index) => (
-      <Fragment key={index}>
-        <TabBarItem {...item} />
-      </Fragment>
+    {items.map(item => (
+      <TabBarItem {...item} key={item.title} />
     ))}
   </Wrapper>
 );

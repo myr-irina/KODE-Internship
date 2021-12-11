@@ -33,7 +33,6 @@ export const ProfileTemplate = ({
       {menu}
       <Flex1 />
       {tabbar}
-      <Flex1 />
     </Wrapper>
   );
 };

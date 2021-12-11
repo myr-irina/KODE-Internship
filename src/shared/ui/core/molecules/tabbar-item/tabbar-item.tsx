@@ -11,11 +11,6 @@ const Wrapper = styled(TouchableOpacity)`
   flex: 1;
 `;
 
-const Title = styled(Typography)`
-  font-size: 11px;
-  flex: 1;
-`;
-
 export type TabBarItem = {
   icon: ReactNode;
   title: string;
@@ -25,6 +20,6 @@ export type TabBarItem = {
 export const TabBarItem = ({ icon, title, onPress }: TabBarItem) => (
   <Wrapper onPress={onPress} activeOpacity={0.7}>
     {icon}
-    <Title variant="body20">{title}</Title>
+    <Typography variant="caption2">{title}</Typography>
   </Wrapper>
 );
