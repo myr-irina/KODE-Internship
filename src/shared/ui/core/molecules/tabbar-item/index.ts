@@ -1,0 +1,1 @@
+export { TabBarItem } from './tabbar-item';

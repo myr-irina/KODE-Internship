@@ -38,6 +38,30 @@ storiesOf('ui/pages', module).add('profile-page', () => {
           },
         ],
       }}
+      tabbar={{
+        items: [
+          {
+            title: 'Настройки',
+            icon: <Icons.TabBarMain />,
+            onPress: () => null,
+          },
+          {
+            title: 'Платежи',
+            icon: <Icons.TabBarPayment />,
+            onPress: () => null,
+          },
+          {
+            title: 'Банкоматы',
+            icon: <Icons.TabBarBank />,
+            onPress: () => null,
+          },
+          {
+            title: 'Профиль',
+            icon: <Icons.TabBarProfile />,
+            onPress: () => null,
+          },
+        ],
+      }}
     />
   );
 });

@@ -15,9 +15,14 @@ const Wrapper = styled(Flex1)<{ bottom: number; top: number }>`
 export type TProfileTemplate = {
   profileInfo: ReactNode;
   menu: ReactNode;
+  tabbar: ReactNode;
 };
 
-export const ProfileTemplate = ({ profileInfo, menu }: TProfileTemplate) => {
+export const ProfileTemplate = ({
+  profileInfo,
+  menu,
+  tabbar,
+}: TProfileTemplate) => {
   const { bottom, top } = useSafeAreaInsets();
 
   return (
@@ -26,6 +31,8 @@ export const ProfileTemplate = ({ profileInfo, menu }: TProfileTemplate) => {
       {profileInfo}
       <Flex1 />
       {menu}
+      <Flex1 />
+      {tabbar}
       <Flex1 />
     </Wrapper>
   );
