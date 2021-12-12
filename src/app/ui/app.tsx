@@ -1,4 +1,4 @@
-import { StrictMode, ReactNode, useState } from 'react';
+import { StrictMode, ReactNode, useState, createContext } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import AppLoading from 'expo-app-loading';
 import { useFonts } from 'expo-font';
@@ -27,9 +27,13 @@ type Props = {
   storybookUI?: ReactNode;
 };
 
+export const AppDataContext = createContext({});
+
 export const App = ({ storybookUI }: Props) => {
   const [isFontsLoaded] = useFonts(customFonts);
   const [isStorybookClosed, setStorybookClosed] = useState(false);
+
+  // загружаем из api через юзэффект данные, мы кладем данные в переменнную data
 
   if (!isFontsLoaded) {
     return <AppLoading />;
@@ -51,9 +55,11 @@ export const App = ({ storybookUI }: Props) => {
   return (
     <StrictMode>
       <AppThemeProvider>
-        <NavigationContainer>
-          <AppNavigation />
-        </NavigationContainer>
+        {/* <AppDataContext.Provider value={data}> */}
+          <NavigationContainer>
+            <AppNavigation />
+          </NavigationContainer>
+        {/* </AppDataContext.Provider> */}
       </AppThemeProvider>
     </StrictMode>
   );

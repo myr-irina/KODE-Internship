@@ -6,9 +6,9 @@ import { Icons } from '@shared/ui/core/atoms';
 import styled from 'styled-components/native';
 
 const ScreenView = styled.View`
-flex: 1;
-background-color: ${props => props.theme.palette.background.primary};
-justify-content: center;
+  flex: 1;
+  background-color: ${props => props.theme.palette.background.primary};
+  justify-content: center;
 `;
 
 const Stack = createNativeStackNavigator();
@@ -92,6 +92,15 @@ export const AppNavigation = () => {
                   ],
                 }}
               />
+            </ScreenView>
+          </SafeAreaProvider>
+        )}
+      </Stack.Screen>
+      <Stack.Screen name="ATM">
+        {props => (
+          <SafeAreaProvider>
+            <ScreenView {...props}>
+              <Text>Банкоматы</Text>
             </ScreenView>
           </SafeAreaProvider>
         )}

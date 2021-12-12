@@ -1,7 +1,9 @@
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
-import { ReactNode } from 'react';
+import { ReactNode, useContext } from 'react';
 
 import { styled } from '@shared/ui/theme';
+
+import { AppDataContext } from '@app/ui/app';
 
 const Flex1 = styled.View`
   flex: 1;
@@ -24,6 +26,9 @@ export const ProfileTemplate = ({
   tabbar,
 }: TProfileTemplate) => {
   const { bottom, top } = useSafeAreaInsets();
+
+  const appData = useContext(AppDataContext)                     
+
 
   return (
     <Wrapper bottom={bottom} top={top}>
