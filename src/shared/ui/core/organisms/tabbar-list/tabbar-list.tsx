@@ -1,6 +1,6 @@
 import { ComponentProps, Fragment } from 'react';
 import { styled } from '@shared/ui/theme';
-import { Typography } from '../../typography';
+
 import { TouchableOpacity } from 'react-native';
 
 import { TabBarItem } from '../../molecules';

@@ -1,5 +1,5 @@
 import React, { ReactNode } from 'react';
-import { Text, View } from 'react-native';
+
 import { styled } from '@shared/ui/theme';
 import { Typography } from '../../typography';
 import { TouchableOpacity } from 'react-native';
