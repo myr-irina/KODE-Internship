@@ -11,6 +11,7 @@ const ScreenView = styled.View`
   flex: 1;
   background-color: ${props => props.theme.palette.background.primary};
   justify-content: center;
+ 
 `;
 
 const Stack = createNativeStackNavigator();
@@ -160,11 +161,11 @@ export const AppNavigation = () => {
           tabBarIcon: ({ focused }) => (
             <View>
               <Icons.TabBarMain
-                // style={{
-                //   width: 25,
-                //   height: 25,
-                //   tintColor: focused ? '#F678BA' : '#FFFFFF',
-                // }}
+              // style={{
+              //   width: 25,
+              //   height: 25,
+              //   tintColor: focused ? '#F678BA' : '#FFFFFF',
+              // }}
               />
             </View>
           ),

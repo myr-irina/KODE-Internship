@@ -24,19 +24,16 @@ const Right = styled.View`
   margin-left: auto;
 `;
 
-export type TMenuItem = {
-  left: ReactNode;
+export type TPaymentItem = {
+  icon: ReactNode;
   title: string;
-  right?: ReactNode;
   onPress: () => void;
 };
 
-export const MenuItem = ({ left, title, right, onPress }: TMenuItem) => (
+export const PaymentItem = ({ icon, title, onPress }: TPaymentItem) => (
   <Wrapper onPress={onPress} activeOpacity={0.7}>
-    {left}
+    {icon}
     <Title variant="body20">{title}</Title>
     <HSpacing />
-    <Right>{right}</Right>
-    {/* <HSpacing /> */}
   </Wrapper>
 );

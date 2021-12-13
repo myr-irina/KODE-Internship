@@ -1,10 +1,18 @@
-import { StrictMode, ReactNode, useState, createContext } from 'react';
+import {
+  StrictMode,
+  ReactNode,
+  useState,
+  createContext,
+  useEffect,
+} from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import AppLoading from 'expo-app-loading';
 import { useFonts } from 'expo-font';
 
 import { AppThemeProvider, styled } from '@shared/ui/theme';
 import { AppNavigation } from '@pages/ui';
+
+const [data, setData] = useState({});
 
 const StorybookButton = styled.TouchableOpacity`
   height: 32px;
@@ -34,6 +42,19 @@ export const App = ({ storybookUI }: Props) => {
   const [isStorybookClosed, setStorybookClosed] = useState(false);
 
   // загружаем из api через юзэффект данные, мы кладем данные в переменнную data
+  useEffect(() => {
+    fetch('https://github.com/kode-frontend/files/raw/main/categories.json')
+      .then(res => {
+        return res.json();
+      })
+      .then(data => {
+        setData(data);
+        console.log(data)
+      })
+      .catch(err => {
+        console.log('Ошибка. Запрос не выполнен: ', err);
+      });
+  });
 
   if (!isFontsLoaded) {
     return <AppLoading />;
@@ -55,11 +76,11 @@ export const App = ({ storybookUI }: Props) => {
   return (
     <StrictMode>
       <AppThemeProvider>
-        {/* <AppDataContext.Provider value={data}> */}
-          <NavigationContainer>
-            <AppNavigation />
-          </NavigationContainer>
-        {/* </AppDataContext.Provider> */}
+        <AppDataContext.Provider value={data}>
+        <NavigationContainer>
+          <AppNavigation />
+        </NavigationContainer>
+        </AppDataContext.Provider>
       </AppThemeProvider>
     </StrictMode>
   );
