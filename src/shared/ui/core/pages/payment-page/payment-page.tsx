@@ -1,13 +1,34 @@
-import { ComponentProps } from 'react';
-
+import { ComponentProps, useContext } from 'react';
+import { Typography } from '../../typography';
 import { PaymentTemplate } from '../../templates';
 import { PaymentList } from '../../organisms';
+import { AppDataContext } from '@app/ui/app';
+import { Image } from 'react-native';
 
 export type TPaymentPage = {
   header: string;
-  menu: ComponentProps<typeof PaymentList>;
 };
 
-export const PaymentPage = ({ header, menu }: TPaymentPage) => (
-  <PaymentTemplate header={header} menu={<PaymentList {...menu} />} />
-);
+export const PaymentPage = ({ header }: TPaymentPage) => {
+  const categories = useContext(AppDataContext);
+  return (
+    <PaymentTemplate
+      header={<Typography>{header}</Typography>}
+      menu={
+        <PaymentList
+          items={categories.category.map(category => ({
+            icon: (
+              <Image              
+                source={{
+                  uri: category.category_icon,
+                }}
+              />
+            ),
+            onPress: () => {},
+            title: category.category_name,
+          }))}
+        />
+      }
+    />
+  );
+};

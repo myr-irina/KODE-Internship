@@ -12,8 +12,6 @@ import { useFonts } from 'expo-font';
 import { AppThemeProvider, styled } from '@shared/ui/theme';
 import { AppNavigation } from '@pages/ui';
 
-const [data, setData] = useState({});
-
 const StorybookButton = styled.TouchableOpacity`
   height: 32px;
   padding: ${({ theme }) => theme.spacing(1)}px;
@@ -35,11 +33,25 @@ type Props = {
   storybookUI?: ReactNode;
 };
 
-export const AppDataContext = createContext({});
+export const AppDataContext = createContext({ category: [] } as Categories);
+
+export interface Categories {
+  category: {
+    category_id: string;
+    category_name: string;
+    category_icon: string;
+    services: {
+      service_id: string;
+      service_name: string;
+      service_icon: string;
+    }[];
+  }[];
+}
 
 export const App = ({ storybookUI }: Props) => {
   const [isFontsLoaded] = useFonts(customFonts);
   const [isStorybookClosed, setStorybookClosed] = useState(false);
+  const [data, setData] = useState<Categories>({ category: [] } as Categories);
 
   // загружаем из api через юзэффект данные, мы кладем данные в переменнную data
   useEffect(() => {
@@ -48,13 +60,14 @@ export const App = ({ storybookUI }: Props) => {
         return res.json();
       })
       .then(data => {
-        setData(data);
-        console.log(data)
+        //валидация throw
+        setData(data as Categories);
+        console.log(data);
       })
       .catch(err => {
         console.log('Ошибка. Запрос не выполнен: ', err);
       });
-  });
+  },[]);
 
   if (!isFontsLoaded) {
     return <AppLoading />;
@@ -77,9 +90,9 @@ export const App = ({ storybookUI }: Props) => {
     <StrictMode>
       <AppThemeProvider>
         <AppDataContext.Provider value={data}>
-        <NavigationContainer>
-          <AppNavigation />
-        </NavigationContainer>
+          <NavigationContainer>
+            <AppNavigation />
+          </NavigationContainer>
         </AppDataContext.Provider>
       </AppThemeProvider>
     </StrictMode>

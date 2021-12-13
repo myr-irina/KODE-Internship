@@ -6,6 +6,7 @@ import { ProfilePage } from '@shared/ui/core/pages/profile-page/profile-page';
 import { Icons, Typography } from '@shared/ui/core/atoms';
 import styled from 'styled-components/native';
 import { boolean } from '@storybook/addon-knobs';
+import { PaymentPage } from '@shared/ui/core/pages/payment-page/payment-page';
 
 const ScreenView = styled.View`
   flex: 1;
@@ -31,7 +32,7 @@ const PaymentScreen = () => {
   return (
     <SafeAreaProvider>
       <ScreenView>
-        <Typography>Платежи</Typography>
+        <PaymentPage header='Платежи'></PaymentPage>
       </ScreenView>
     </SafeAreaProvider>
   );
@@ -140,7 +141,7 @@ function ProfileStackScreen() {
 export const AppNavigation = () => {
   return (
     <Tabs.Navigator
-      initialRouteName="home"
+      initialRouteName="home-tab"
       screenOptions={{
         headerShown: false,
         tabBarActiveTintColor: '#F678BA',
@@ -154,7 +155,7 @@ export const AppNavigation = () => {
       }}
     >
       <Tabs.Screen
-        name="home"
+        name="home-tab"
         component={HomeStackScreen}
         options={{
           tabBarLabel: 'Главная',
@@ -172,7 +173,7 @@ export const AppNavigation = () => {
         }}
       />
       <Tabs.Screen
-        name="payments"
+        name="payments-tab"
         component={PaymentStackScreen}
         options={{
           tabBarLabel: 'Платежи',
@@ -184,7 +185,7 @@ export const AppNavigation = () => {
         }}
       />
       <Tabs.Screen
-        name="ATM"
+        name="ATM-tab"
         component={ATMSStackScreen}
         options={{
           tabBarLabel: 'Банкоматы',
@@ -196,7 +197,7 @@ export const AppNavigation = () => {
         }}
       />
       <Tabs.Screen
-        name="profile"
+        name="profile-tab"
         component={ProfileStackScreen}
         options={{
           tabBarLabel: 'Профиль',

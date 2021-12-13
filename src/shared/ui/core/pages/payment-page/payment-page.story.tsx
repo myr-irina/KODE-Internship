@@ -4,33 +4,71 @@ import { text } from '@storybook/addon-knobs';
 import { PaymentPage } from './payment-page';
 import { Icons } from '../../atoms';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { AppDataContext } from '@app/ui/app';
 
-storiesOf('ui/pages', module).add('profile-page', () => {
+storiesOf('ui/pages', module).add('payment-page', () => {
   return (
     <SafeAreaProvider>
-      <PaymentPage
-        header={'Платежи'}
-        menu={{
-          items: [
+      <AppDataContext.Provider
+        value={{
+          category: [
             {
-              title: 'Мобильная связь',
-              icon: <Icons.Settings />,
-              onPress: () => null,
+              category_id: '1',
+              category_name: 'Мобильная связь',
+              category_icon:
+                'https://github.com/kode-frontend/files/raw/main/1_mobile.png',
+              services: [
+                {
+                  service_id: '11',
+                  service_name: 'МТС',
+                  service_icon:
+                    'https://github.com/kode-frontend/files/raw/main/MTS.png',
+                },
+                {
+                  service_id: '12',
+                  service_name: 'МегаФон',
+                  service_icon:
+                    'https://github.com/kode-frontend/files/raw/main/megafon.png',
+                },
+                {
+                  service_id: '13',
+                  service_name: 'Beeline',
+                  service_icon:
+                    'https://github.com/kode-frontend/files/raw/main/beeline.png',
+                },
+                {
+                  service_id: '14',
+                  service_name: 'Tele2',
+                  service_icon:
+                    'https://github.com/kode-frontend/files/raw/main/tele2.png',
+                },
+                {
+                  service_id: '15',
+                  service_name: 'Kode Mobile',
+                  service_icon:
+                    'https://github.com/kode-frontend/files/raw/main/kode.png',
+                },
+              ],
             },
             {
-              title: 'ЖКХ',
-              icon: <Icons.Moon />,
-
-              onPress: () => null,
+              category_id: '2',
+              category_name: 'ЖКХ',
+              category_icon:
+                'https://github.com/kode-frontend/files/raw/main/1_JKH.png',
+              services: [],
             },
             {
-              title: 'Интернет',
-              icon: <Icons.Phone />,
-              onPress: () => null,
+              category_id: '3',
+              category_name: 'Интернет',
+              category_icon:
+                'https://github.com/kode-frontend/files/raw/main/1_Internet.png',
+              services: [],
             },
           ],
         }}
-      />
+      >
+        <PaymentPage header={'Платежи'} />
+      </AppDataContext.Provider>
     </SafeAreaProvider>
   );
 });
