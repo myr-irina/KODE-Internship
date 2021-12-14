@@ -35,7 +35,7 @@ export const MenuItem = ({ left, title, right, onPress }: TMenuItem) => (
   <Wrapper onPress={onPress} activeOpacity={0.7}>
     {left}
     <Title variant="body20">{title}</Title>
-    <HSpacing />
+    {/* <HSpacing /> */}
     <Right>{right}</Right>
     {/* <HSpacing /> */}
   </Wrapper>

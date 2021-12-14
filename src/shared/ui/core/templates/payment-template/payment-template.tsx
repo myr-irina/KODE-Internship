@@ -7,6 +7,8 @@ import { styled } from '@shared/ui/theme';
 
 const Flex1 = styled.View`
   flex: 1;
+  align-items: center;
+  justify-content: center;
 `;
 
 const Wrapper = styled(Flex1)<{ bottom: number; top: number }>`
@@ -22,14 +24,13 @@ export type TPaymentTemplate = {
 export const PaymentTemplate = ({ header, menu }: TPaymentTemplate) => {
   const { bottom, top } = useSafeAreaInsets();
 
-  // const appData = useContext(AppDataContext);
-
   return (
     <Wrapper bottom={bottom} top={top}>
       <Flex1 />
       {header}
       <Flex1 />
       {menu}
+      <Flex1 />
     </Wrapper>
   );
 };

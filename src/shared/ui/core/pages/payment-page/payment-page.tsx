@@ -13,15 +13,16 @@ export const PaymentPage = ({ header }: TPaymentPage) => {
   const categories = useContext(AppDataContext);
   return (
     <PaymentTemplate
-      header={<Typography>{header}</Typography>}
+      header={<Typography variant="title">{header}</Typography>}
       menu={
         <PaymentList
           items={categories.category.map(category => ({
             icon: (
-              <Image              
+              <Image
                 source={{
                   uri: category.category_icon,
                 }}
+                style={{ width: 40, height: 40 }}
               />
             ),
             onPress: () => {},

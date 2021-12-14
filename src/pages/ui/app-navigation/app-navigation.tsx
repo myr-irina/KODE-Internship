@@ -12,7 +12,7 @@ const ScreenView = styled.View`
   flex: 1;
   background-color: ${props => props.theme.palette.background.primary};
   justify-content: center;
- 
+  align-items: center;
 `;
 
 const Stack = createNativeStackNavigator();
@@ -22,7 +22,7 @@ const HomeScreen = () => {
   return (
     <SafeAreaProvider>
       <ScreenView>
-        <Typography>Главная</Typography>
+        <Typography variant="title">Главная</Typography>
       </ScreenView>
     </SafeAreaProvider>
   );
@@ -32,7 +32,7 @@ const PaymentScreen = () => {
   return (
     <SafeAreaProvider>
       <ScreenView>
-        <PaymentPage header='Платежи'></PaymentPage>
+        <PaymentPage header="Платежи"></PaymentPage>
       </ScreenView>
     </SafeAreaProvider>
   );
@@ -42,7 +42,7 @@ const ATMScreen = () => {
   return (
     <SafeAreaProvider>
       <ScreenView>
-        <Typography>Банкоматы</Typography>
+        <Typography variant="title">Банкоматы</Typography>
       </ScreenView>
     </SafeAreaProvider>
   );

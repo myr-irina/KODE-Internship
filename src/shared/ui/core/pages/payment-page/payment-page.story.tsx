@@ -1,8 +1,5 @@
 import { storiesOf } from '@storybook/react-native';
-import { text } from '@storybook/addon-knobs';
-
 import { PaymentPage } from './payment-page';
-import { Icons } from '../../atoms';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { AppDataContext } from '@app/ui/app';
 

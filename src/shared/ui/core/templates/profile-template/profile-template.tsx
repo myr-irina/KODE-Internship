@@ -3,7 +3,6 @@ import { ReactNode, useContext } from 'react';
 
 import { styled } from '@shared/ui/theme';
 
-
 const Flex1 = styled.View`
   flex: 1;
 `;
