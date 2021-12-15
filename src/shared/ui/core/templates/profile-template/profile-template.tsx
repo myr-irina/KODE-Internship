@@ -5,11 +5,11 @@ import { styled } from '@shared/ui/theme';
 
 const Flex1 = styled.View`
   flex: 1;
+  align-items: center;
 `;
 
 const Wrapper = styled(Flex1)<{ bottom: number; top: number }>`
-  padding-top: ${({ top }) => top}px;
-  padding-bottom: ${({ theme, bottom }) => bottom + theme.spacing(1)}px;
+  padding-bottom: ${({ theme, bottom }) => bottom + theme.spacing(8)}px;
 `;
 
 export type TProfileTemplate = {

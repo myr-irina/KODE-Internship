@@ -6,7 +6,7 @@ import { styled } from '@shared/ui/theme';
 // import { AppDataContext } from '@app/ui/app';
 
 const Flex1 = styled.View`
-  flex: 1;
+  flex: 0.8;
   align-items: center;
   justify-content: center;
 `;

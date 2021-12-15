@@ -1,4 +1,5 @@
 import { ComponentProps, Fragment } from 'react';
+import { FlatList } from 'react-native';
 
 import { PaymentItem } from '../../molecules';
 
@@ -9,9 +10,15 @@ export type TPaymentList = {
 };
 
 export const PaymentList = ({ items }: TPaymentList) => (
+  // <FlatList
+  //   keyExtractor={item => item.title}
+  //   data={items}
+  //   renderItem={({ item }) => <PaymentItem {...item} />}
+  // />
+
   <>
-    {items.map((item, index) => (
-      <Fragment key={index}>
+    {items.map((item, title) => (
+      <Fragment key={title}>
         <PaymentItem {...item} />
       </Fragment>
     ))}
