@@ -7,6 +7,7 @@ import { TabBarMain } from './tabbar-main/tabbar-main';
 import { TabBarPayment } from './tabbar-payment/tabbar-payment';
 import { TabBarBank } from './tabbar-bank/tabbar-bank';
 import { TabBarProfile } from './tabbar-profile/tabbar-profile';
+import { SearchIcon } from './search/search';
 
 export const Icons = {
   Settings,
@@ -18,4 +19,5 @@ export const Icons = {
   TabBarPayment,
   TabBarBank,
   TabBarProfile,
+  SearchIcon
 };
