@@ -28,6 +28,10 @@ type StackParamList = {
 };
 
 const Stack = createNativeStackNavigator<StackParamList>();
+const HomeScreensStack = createNativeStackNavigator<StackParamList>();
+const ATMScreensStack = createNativeStackNavigator<StackParamList>();
+const ProfileScreensStack = createNativeStackNavigator<StackParamList>();
+
 const Tabs = createBottomTabNavigator();
 
 const HomeScreen = () => {
@@ -128,13 +132,13 @@ const PaymentByPhoneScreen = ({
 
 function HomeStackScreen() {
   return (
-    <Stack.Navigator
+    <HomeScreensStack.Navigator
       screenOptions={{
         headerShown: false,
       }}
     >
-      <Stack.Screen name={'home'} component={HomeScreen} />
-    </Stack.Navigator>
+      <HomeScreensStack.Screen name={'home'} component={HomeScreen} />
+    </HomeScreensStack.Navigator>
   );
 }
 
@@ -153,25 +157,25 @@ function PaymentStackScreen() {
 
 function ATMSStackScreen() {
   return (
-    <Stack.Navigator
+    <ATMScreensStack.Navigator
       screenOptions={{
         headerShown: false,
       }}
     >
-      <Stack.Screen name={'ATM'} component={ATMScreen} />
-    </Stack.Navigator>
+      <ATMScreensStack.Screen name={'ATM'} component={ATMScreen} />
+    </ATMScreensStack.Navigator>
   );
 }
 
 function ProfileStackScreen() {
   return (
-    <Stack.Navigator
+    <ProfileScreensStack.Navigator
       screenOptions={{
         headerShown: false,
       }}
     >
-      <Stack.Screen name={'profile'} component={ProfileScreen} />
-    </Stack.Navigator>
+      <ProfileScreensStack.Screen name={'profile'} component={ProfileScreen} />
+    </ProfileScreensStack.Navigator>
   );
 }
 
