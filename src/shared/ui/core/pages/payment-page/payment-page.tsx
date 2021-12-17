@@ -58,7 +58,6 @@ export const PaymentPage = (props: TPaymentPage) => {
               />
             ),
             onPress: () => {
-              console.log(category);
               pressHandler(category);
             },
             title: category.category_name,

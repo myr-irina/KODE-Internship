@@ -10,17 +10,17 @@ export type TPaymenByPhonetList = {
 };
 
 export const PaymentByPhonetList = ({ items }: TPaymenByPhonetList) => (
-  <FlatList
-    keyExtractor={item => item.title}
-    data={items}
-    renderItem={({ item }) => <PaymentByPhoneItem {...item} />}
-  />
+  // <FlatList
+  //   keyExtractor={item => item.title}
+  //   data={items}
+  //   renderItem={({ item }) => <PaymentByPhoneItem {...item} />}
+  // />
 
-  // <>
-  //   {items.map((item, title) => (
-  //     <Fragment key={title}>
-  //       <PaymentByPhoneItem {...item} />
-  //     </Fragment>
-  //   ))}
-  // </>
+  <>
+    {items.map((item, title) => (
+      <Fragment key={title}>
+        <PaymentByPhoneItem {...item} />
+      </Fragment>
+    ))}
+  </>
 );
