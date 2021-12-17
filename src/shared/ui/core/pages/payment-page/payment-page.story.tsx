@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/react-native';
 import { PaymentPage } from './payment-page';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { AppDataContext } from '@app/ui/app';
+import { AppDataContext } from '@shared/data/appdata';
 
 storiesOf('ui/pages', module).add('payment-page', () => {
   return (
@@ -64,7 +64,7 @@ storiesOf('ui/pages', module).add('payment-page', () => {
           ],
         }}
       >
-        <PaymentPage header={'Платежи'} />
+        <PaymentPage header={'Платежи'} navigate={() => {}} />
       </AppDataContext.Provider>
     </SafeAreaProvider>
   );

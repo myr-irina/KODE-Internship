@@ -24,13 +24,14 @@ const Right = styled.View`
   margin-left: auto;
 `;
 
-export type TPaymentItem = {
+type TPaymentItem = {
   icon: ReactNode;
   title: string;
+  onPress: () => void;
 };
 
-export const PaymentByPhoneItem = ({ icon, title }: TPaymentItem) => (
-  <Wrapper activeOpacity={0.7}>
+export const PaymentByPhoneItem = ({ icon, title, onPress }: TPaymentItem) => (
+  <Wrapper onPress={onPress} activeOpacity={0.7}>
     {icon}
     <Title variant="body20">{title}</Title>
     <HSpacing />

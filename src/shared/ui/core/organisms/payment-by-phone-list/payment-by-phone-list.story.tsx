@@ -9,27 +9,18 @@ storiesOf('ui/organisms', module).add('payment-by-phone-list', () => {
       items={[
         {
           title: 'МТС',
-          icon: <Icons.Settings />,          
+          icon: <Icons.Settings />,
+          onPress: () => null,
         },
         {
-          title: 'Мегафон',
-          icon: <Icons.Moon />,          
+          title: 'МТС',
+          icon: <Icons.Settings />,
+          onPress: () => null,
         },
         {
-          title: 'Beeline',
-          icon: <Icons.Phone />,          
-        },
-        {
-          title: 'Beeline',
-          icon: <Icons.Phone />,          
-        },
-        {
-          title: 'Beeline',
-          icon: <Icons.Phone />,          
-        },
-        {
-          title: 'Beeline',
-          icon: <Icons.Phone />,          
+          title: 'МТС',
+          icon: <Icons.Settings />,
+          onPress: () => null,
         },
       ]}
     />

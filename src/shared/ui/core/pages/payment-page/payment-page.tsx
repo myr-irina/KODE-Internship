@@ -1,13 +1,16 @@
-import { ComponentProps, useContext } from 'react';
+import { ComponentProps, ReactNode, useContext } from 'react';
 import { Typography } from '../../typography';
 import { PaymentTemplate } from '../../templates';
 import { PaymentList } from '../../organisms';
-import { AppDataContext } from '@app/ui/app';
+
 import { FlatList, Image } from 'react-native';
 import { PaymentItem } from '../../molecules';
+import { NavigationContainer } from '@react-navigation/native';
+import { AppDataContext, Categories, Category } from '@shared/data/appdata';
 
 export type TPaymentPage = {
   header: string;
+  navigate: Function;
 };
 
 // export const PaymentPage = ({ header }: TPaymentPage) => {
@@ -32,7 +35,13 @@ export type TPaymentPage = {
 //   );
 // };
 
-export const PaymentPage = ({ header }: TPaymentPage) => {
+export const PaymentPage = (props: TPaymentPage) => {
+  const { header, navigate } = props;
+
+  const pressHandler = (category: Category) => {
+    navigate('paymentbyphone', category);
+  };
+
   const categories = useContext(AppDataContext);
   return (
     <PaymentTemplate
@@ -48,7 +57,10 @@ export const PaymentPage = ({ header }: TPaymentPage) => {
                 style={{ width: 40, height: 40 }}
               />
             ),
-            onPress: () => {},
+            onPress: () => {
+              console.log(category);
+              pressHandler(category);
+            },
             title: category.category_name,
           }))}
         />

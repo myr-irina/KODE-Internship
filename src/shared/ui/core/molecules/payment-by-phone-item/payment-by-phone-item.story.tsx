@@ -10,6 +10,7 @@ storiesOf('ui/molecules', module).add('payment-by-phone-item', () => {
     <PaymentByPhoneItem
       icon={<Icons.SearchIcon />}
       title={text('title', 'Мобильная связь')}
+      onPress={() => null}
     />
   );
 });

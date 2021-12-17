@@ -11,6 +11,7 @@ import { useFonts } from 'expo-font';
 
 import { AppThemeProvider, styled } from '@shared/ui/theme';
 import { AppNavigation } from '@pages/ui';
+import { AppDataContext, Categories } from '@shared/data/appdata';
 
 const StorybookButton = styled.TouchableOpacity`
   height: 32px;
@@ -33,20 +34,7 @@ type Props = {
   storybookUI?: ReactNode;
 };
 
-export const AppDataContext = createContext({ category: [] } as Categories);
 
-export interface Categories {
-  category: {
-    category_id: string;
-    category_name: string;
-    category_icon: string;
-    services: {
-      service_id: string;
-      service_name: string;
-      service_icon: string;
-    }[];
-  }[];
-}
 
 export const App = ({ storybookUI }: Props) => {
   const [isFontsLoaded] = useFonts(customFonts);

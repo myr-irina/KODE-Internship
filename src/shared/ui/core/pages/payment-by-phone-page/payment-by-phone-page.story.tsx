@@ -1,71 +1,52 @@
 import { storiesOf } from '@storybook/react-native';
 import { PaymentByPhonePage } from './payment-by-phone-page';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import { AppDataContext } from '@app/ui/app';
 
 storiesOf('ui/pages', module).add('payment-by-phone-page', () => {
   return (
     <SafeAreaProvider>
-      <AppDataContext.Provider
-        value={{
-          category: [
+      <PaymentByPhonePage
+        header={'Платежи'}
+        category={{
+          category_id: '1',
+          category_name: 'Мобильная связь',
+          category_icon:
+            'https://github.com/kode-frontend/files/raw/main/1_mobile.png',
+          services: [
             {
-              category_id: '1',
-              category_name: 'Мобильная связь',
-              category_icon:
-                'https://github.com/kode-frontend/files/raw/main/1_mobile.png',
-              services: [
-                {
-                  service_id: '11',
-                  service_name: 'МТС',
-                  service_icon:
-                    'https://github.com/kode-frontend/files/raw/main/MTS.png',
-                },
-                {
-                  service_id: '12',
-                  service_name: 'МегаФон',
-                  service_icon:
-                    'https://github.com/kode-frontend/files/raw/main/megafon.png',
-                },
-                {
-                  service_id: '13',
-                  service_name: 'Beeline',
-                  service_icon:
-                    'https://github.com/kode-frontend/files/raw/main/beeline.png',
-                },
-                {
-                  service_id: '14',
-                  service_name: 'Tele2',
-                  service_icon:
-                    'https://github.com/kode-frontend/files/raw/main/tele2.png',
-                },
-                {
-                  service_id: '15',
-                  service_name: 'Kode Mobile',
-                  service_icon:
-                    'https://github.com/kode-frontend/files/raw/main/kode.png',
-                },
-              ],
+              service_id: '11',
+              service_name: 'МТС',
+              service_icon:
+                'https://github.com/kode-frontend/files/raw/main/MTS.png',
             },
             {
-              category_id: '2',
-              category_name: 'ЖКХ',
-              category_icon:
-                'https://github.com/kode-frontend/files/raw/main/1_JKH.png',
-              services: [],
+              service_id: '12',
+              service_name: 'МегаФон',
+              service_icon:
+                'https://github.com/kode-frontend/files/raw/main/megafon.png',
             },
             {
-              category_id: '3',
-              category_name: 'Интернет',
-              category_icon:
-                'https://github.com/kode-frontend/files/raw/main/1_Internet.png',
-              services: [],
+              service_id: '13',
+              service_name: 'Beeline',
+              service_icon:
+                'https://github.com/kode-frontend/files/raw/main/beeline.png',
+            },
+            {
+              service_id: '14',
+              service_name: 'Tele2',
+              service_icon:
+                'https://github.com/kode-frontend/files/raw/main/tele2.png',
+            },
+            {
+              service_id: '15',
+              service_name: 'Kode Mobile',
+              service_icon:
+                'https://github.com/kode-frontend/files/raw/main/kode.png',
             },
           ],
         }}
-      >
-        <PaymentPage header={'Платежи'} />
-      </AppDataContext.Provider>
+        navigate={() => {}}
+      />
     </SafeAreaProvider>
   );
 });

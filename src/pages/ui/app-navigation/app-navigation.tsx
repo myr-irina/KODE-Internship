@@ -1,5 +1,8 @@
 import { Text, TouchableOpacity, View } from 'react-native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import {
+  createNativeStackNavigator,
+  NativeStackScreenProps,
+} from '@react-navigation/native-stack';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { ProfilePage } from '@shared/ui/core/pages/profile-page/profile-page';
@@ -7,6 +10,8 @@ import { Icons, Typography } from '@shared/ui/core/atoms';
 import styled from 'styled-components/native';
 import { boolean } from '@storybook/addon-knobs';
 import { PaymentPage } from '@shared/ui/core/pages/payment-page/payment-page';
+import { PaymentByPhonePage } from '@shared/ui/core/pages/payment-by-phone-page/payment-by-phone-page';
+import { Category } from '@shared/data/appdata';
 
 const ScreenView = styled.View`
   flex: 1;
@@ -14,8 +19,15 @@ const ScreenView = styled.View`
   justify-content: center;
   align-items: center;
 `;
+type StackParamList = {
+  home: undefined;
+  payment: undefined;
+  paymentbyphone: Category;
+  ATM: undefined;
+  profile: undefined;
+};
 
-const Stack = createNativeStackNavigator();
+const Stack = createNativeStackNavigator<StackParamList>();
 const Tabs = createBottomTabNavigator();
 
 const HomeScreen = () => {
@@ -28,11 +40,15 @@ const HomeScreen = () => {
   );
 };
 
-const PaymentScreen = () => {
+const PaymentScreen = ({
+  navigation,
+}: NativeStackScreenProps<StackParamList, 'payment'>) => {
+  const navigate = navigation.navigate;
+
   return (
     <SafeAreaProvider>
       <ScreenView>
-        <PaymentPage header="Платежи"></PaymentPage>
+        <PaymentPage header="Платежи" navigate={navigate}></PaymentPage>
       </ScreenView>
     </SafeAreaProvider>
   );
@@ -90,6 +106,26 @@ const ProfileScreen = () => {
   );
 };
 
+const PaymentByPhoneScreen = ({
+  route,
+  navigation,
+}: NativeStackScreenProps<StackParamList, 'paymentbyphone'>) => {
+  const category = route.params;
+  const navigate = navigation.navigate;
+
+  return (
+    <SafeAreaProvider>
+      <ScreenView>
+        <PaymentByPhonePage
+          header="Мобильная связь"
+          category={category}
+          navigate={navigate}
+        />
+      </ScreenView>
+    </SafeAreaProvider>
+  );
+};
+
 function HomeStackScreen() {
   return (
     <Stack.Navigator
@@ -110,6 +146,7 @@ function PaymentStackScreen() {
       }}
     >
       <Stack.Screen name={'payment'} component={PaymentScreen} />
+      <Stack.Screen name={'paymentbyphone'} component={PaymentByPhoneScreen} />
     </Stack.Navigator>
   );
 }
