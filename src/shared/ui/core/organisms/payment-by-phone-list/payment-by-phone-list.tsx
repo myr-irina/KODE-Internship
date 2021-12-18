@@ -1,5 +1,6 @@
 import { ComponentProps, Fragment } from 'react';
 import { FlatList } from 'react-native';
+import styled from 'styled-components';
 
 import { PaymentByPhoneItem } from '../../molecules/payment-by-phone-item';
 

@@ -1,8 +1,6 @@
 import { useContext, useState } from 'react';
 import { Typography } from '../../typography';
 import { PaymentByPhoneTemplate } from '../../templates';
-import { PaymentList } from '../../organisms';
-
 import { Image } from 'react-native';
 import { InputItem } from '../../molecules';
 import { Icons } from '../../atoms';

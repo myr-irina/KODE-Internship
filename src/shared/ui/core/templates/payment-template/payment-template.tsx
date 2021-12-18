@@ -3,10 +3,8 @@ import { ReactNode, useContext } from 'react';
 import { Typography } from '../../typography';
 import { styled } from '@shared/ui/theme';
 
-// import { AppDataContext } from '@app/ui/app';
-
 const Flex1 = styled.View`
-  flex: 0.8;
+  flex: 1;
   align-items: center;
   justify-content: center;
 `;
@@ -25,11 +23,11 @@ export const PaymentTemplate = ({ header, menu }: TPaymentTemplate) => {
 
   return (
     <Wrapper bottom={bottom} top={top}>
-      <Flex1 />
+   
       {header}
-      <Flex1 />
+   
       {menu}
-      <Flex1 />
+
     </Wrapper>
   );
 };

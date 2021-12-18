@@ -2,8 +2,9 @@ import React, { ReactNode, useState } from 'react';
 
 import { styled } from '@shared/ui/theme';
 import { TextInput, TouchableOpacity } from 'react-native';
+import { Icons } from '../../atoms';
 
-// const Wrapper = styled(TouchableOpacity)`
+// const  = styled(TouchableOpacity)`
 //   padding: ${({ theme }) => theme.spacing(2)}px;
 //   display: flex;
 //   align-items: center;
@@ -18,34 +19,27 @@ import { TextInput, TouchableOpacity } from 'react-native';
 
 const Container = styled.View`
   width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
-// const Input = styled.TextInput.attrs({
-//   placeholderTextColor: 'red',
-// })`
-//   flex: 1 0;
-//   min-width: 50px;
-//   min-height: 25px;
-//   background-color: transparent;
-//   padding-left: 5px;
-//   background-color: '#000';
-//   font-size: 18px;
-//   margin: 10px;
-//   background: papayawhip;
-//   border: none;
-//   border-radius: 3px;
-//   &:focus {
-//     outline: none;
-//   }
-// `;
-
-const Input = styled.TextInput`
-  width: 100%;
-  height: 60px;
-  font-size: 18px;
+const Input = styled.TextInput.attrs({
+  placeholderTextColor: '#706D76',
+})`
   flex: 1;
-  color: #010101;
-  margin-left: 10px;
+  position: absolute;
+  top: 12px;
+  width: 288px;
+  padding-left: 13px;
+  height: 36px;
+  font-size: 18px;
+  background: #403a47;
+  border: none;
+  border-radius: 8px;
+  &:focus {
+    outline: none;
+  }
 `;
 
 export type TInput = {
@@ -54,7 +48,7 @@ export type TInput = {
 
 export const InputItem = ({ icon }: TInput) => (
   <Container>
-    <Input placeholder="Поиск" />
     {icon}
+    <Input placeholder="Поиск" />
   </Container>
 );

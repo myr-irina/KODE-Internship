@@ -6,7 +6,7 @@ storiesOf('ui/pages', module).add('payment-by-phone-page', () => {
   return (
     <SafeAreaProvider>
       <PaymentByPhonePage
-        header={'Платежи'}
+        header={'Мобильная связь'}
         category={{
           category_id: '1',
           category_name: 'Мобильная связь',
