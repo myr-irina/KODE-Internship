@@ -44,6 +44,8 @@ const Input = styled.TextInput.attrs({
 
 export type TInput = {
   icon: ReactNode;
+  onChangeText?: (param: any) => void
+  value?: string;
 };
 
 export const InputItem = ({ icon }: TInput) => (

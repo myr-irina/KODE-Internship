@@ -13,19 +13,28 @@ export type TPaymentByPhonePage = {
   navigate: Function;
 };
 
-export const PaymentByPhonePage = ({ header, category, navigate }: TPaymentByPhonePage) => {
-
+export const PaymentByPhonePage = ({
+  header,
+  category,
+  navigate,
+}: TPaymentByPhonePage) => {
   const [searchQuery, setSearchQuery] = useState('');
 
-  // const filteredCategory = categories.category.services.filter((service) => {
-  //   service.service_name.toLowerCasae().includes(searchQuery.toLowrerCase())
-  // })
+  const filteredCategory = category.services.filter(service => {
+    service.service_name.toLowerCase().includes(searchQuery.toLowerCase());
+  });
 
   return (
     <PaymentByPhoneTemplate
-      header={<Typography variant="title">{header}</Typography>}
-      // search={<InputItem icon={<Icons.SearchIcon />} onChangeText={(text: string)=> setSearchQuery{text}} value={searchQuery}/>}
-      search={<InputItem icon={<Icons.SearchIcon />} />}
+      header={<Typography variant="title">{category.category_name}</Typography>}
+      search={
+        <InputItem
+          icon={<Icons.SearchIcon />}
+          onChangeText={(text: string) => setSearchQuery(text)}
+          value={searchQuery}
+        />
+      }
+      // search={<InputItem icon={<Icons.SearchIcon />} />}
       menu={
         <PaymentByPhonetList
           items={category.services.map(service => ({
@@ -40,6 +49,8 @@ export const PaymentByPhonePage = ({ header, category, navigate }: TPaymentByPho
             onPress: () => {},
             title: service.service_name,
           }))}
+
+          // items={filteredCategory}
         />
       }
     />
