@@ -1,3 +1,4 @@
+import React from 'react';
 import { Text, TouchableOpacity, View } from 'react-native';
 import {
   createNativeStackNavigator,
@@ -12,6 +13,7 @@ import { boolean } from '@storybook/addon-knobs';
 import { PaymentPage } from '@shared/ui/core/pages/payment-page/payment-page';
 import { PaymentByPhonePage } from '@shared/ui/core/pages/payment-by-phone-page/payment-by-phone-page';
 import { Category } from '@shared/data/appdata';
+import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
 
 const ScreenView = styled.View`
   flex: 1;
@@ -142,7 +144,14 @@ function HomeStackScreen() {
   );
 }
 
-function PaymentStackScreen() {
+function PaymentStackScreen({ navigation, route }: any) {
+  React.useLayoutEffect(() => {
+    const routeName = getFocusedRouteNameFromRoute(route);
+    if (routeName === 'paymentbyphone') {
+      navigation.setOptions({ tabBarStyle: { display: 'none' } });
+    }
+  }, [navigation, route]);
+
   return (
     <Stack.Navigator
       screenOptions={{

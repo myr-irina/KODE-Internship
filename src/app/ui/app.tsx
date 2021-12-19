@@ -2,7 +2,6 @@ import {
   StrictMode,
   ReactNode,
   useState,
-  createContext,
   useEffect,
 } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
@@ -34,14 +33,11 @@ type Props = {
   storybookUI?: ReactNode;
 };
 
-
-
 export const App = ({ storybookUI }: Props) => {
   const [isFontsLoaded] = useFonts(customFonts);
   const [isStorybookClosed, setStorybookClosed] = useState(false);
   const [data, setData] = useState<Categories>({ category: [] } as Categories);
 
-  // загружаем из api через юзэффект данные, мы кладем данные в переменнную data
   useEffect(() => {
     fetch('https://github.com/kode-frontend/files/raw/main/categories.json')
       .then(res => {
@@ -55,7 +51,7 @@ export const App = ({ storybookUI }: Props) => {
       .catch(err => {
         console.log('Ошибка. Запрос не выполнен: ', err);
       });
-  },[]);
+  }, []);
 
   if (!isFontsLoaded) {
     return <AppLoading />;
