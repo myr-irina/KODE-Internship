@@ -5,7 +5,7 @@ import { Image } from 'react-native';
 import { InputItem } from '../../molecules';
 import { Icons } from '../../atoms';
 import { PaymentByPhonetList } from '../../organisms/payment-by-phone-list';
-import { Category } from '@shared/data/appdata';
+import { Category, Service } from '@shared/data/appdata';
 import { Button } from 'react-native';
 
 export type TPaymentByPhonePage = {
@@ -29,8 +29,8 @@ export const PaymentByPhonePage = ({
             .includes(searchQuery.toLowerCase());
         });
 
-  const pressHandler = (category: Category) => {
-    navigation.navigate('paymentdetails', category);
+  const pressHandler = (service: Service) => {
+    navigation.navigate('paymentdetails', service);
   };
 
   return (

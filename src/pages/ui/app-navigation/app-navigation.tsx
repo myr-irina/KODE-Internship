@@ -12,7 +12,7 @@ import styled from 'styled-components/native';
 import { boolean } from '@storybook/addon-knobs';
 import { PaymentPage } from '@shared/ui/core/pages/payment-page/payment-page';
 import { PaymentByPhonePage } from '@shared/ui/core/pages/payment-by-phone-page/payment-by-phone-page';
-import { Category } from '@shared/data/appdata';
+import { Category, Service } from '@shared/data/appdata';
 import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
 
 const ScreenView = styled.View`
@@ -27,6 +27,7 @@ type StackParamList = {
   paymentbyphone: Category;
   ATM: undefined;
   profile: undefined;
+  paymentdetails: Service;
 };
 
 const Stack = createNativeStackNavigator<StackParamList>();
@@ -117,25 +118,25 @@ const PaymentByPhoneScreen = ({
   navigation,
 }: NativeStackScreenProps<StackParamList, 'paymentbyphone'>) => {
   const category = route.params;
-  const navigate = navigation.navigate;
 
   return (
     <SafeAreaProvider>
       <ScreenView>
-        <PaymentByPhonePage        
-          category={category}       
-          navigation={navigation}
-        />
+        <PaymentByPhonePage category={category} navigation={navigation} />
       </ScreenView>
     </SafeAreaProvider>
   );
 };
 
-const PaymentDetailsScreen = () => {
+const PaymentDetailsScreen = ({
+  route,
+  navigation,
+}: NativeStackScreenProps<StackParamList, 'paymentdetails'>) => {
+  const service = route.params;
   return (
     <SafeAreaProvider>
       <ScreenView>
-        <Typography variant="title">Details</Typography>
+        <Typography variant="title">{`Details${service.service_name}`}</Typography>
       </ScreenView>
     </SafeAreaProvider>
   );
@@ -196,8 +197,6 @@ function ProfileStackScreen() {
     </ProfileScreensStack.Navigator>
   );
 }
-
-
 
 export const AppNavigation = () => {
   return (
