@@ -44,13 +44,13 @@ const Input = styled.TextInput.attrs({
 
 export type TInput = {
   icon: ReactNode;
-  onChangeText?: (param: any) => void
+  onChangeText?: (param: any) => void;
   value?: string;
 };
 
-export const InputItem = ({ icon }: TInput) => (
+export const InputItem = ({ icon, onChangeText, value }: TInput) => (
   <Container>
     {icon}
-    <Input placeholder="Поиск" />
+    <Input placeholder="Поиск" onChangeText={onChangeText} value={value} />
   </Container>
 );

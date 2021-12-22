@@ -122,11 +122,20 @@ const PaymentByPhoneScreen = ({
   return (
     <SafeAreaProvider>
       <ScreenView>
-        <PaymentByPhonePage
-          header="Мобильная связь"
-          category={category}
-          navigate={navigate}
+        <PaymentByPhonePage        
+          category={category}       
+          navigation={navigation}
         />
+      </ScreenView>
+    </SafeAreaProvider>
+  );
+};
+
+const PaymentDetailsScreen = () => {
+  return (
+    <SafeAreaProvider>
+      <ScreenView>
+        <Typography variant="title">Details</Typography>
       </ScreenView>
     </SafeAreaProvider>
   );
@@ -187,6 +196,8 @@ function ProfileStackScreen() {
     </ProfileScreensStack.Navigator>
   );
 }
+
+
 
 export const AppNavigation = () => {
   return (

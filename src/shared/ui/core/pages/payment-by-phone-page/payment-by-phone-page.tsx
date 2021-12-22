@@ -1,4 +1,4 @@
-import { useContext, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { Typography } from '../../typography';
 import { PaymentByPhoneTemplate } from '../../templates';
 import { Image } from 'react-native';
@@ -6,38 +6,53 @@ import { InputItem } from '../../molecules';
 import { Icons } from '../../atoms';
 import { PaymentByPhonetList } from '../../organisms/payment-by-phone-list';
 import { Category } from '@shared/data/appdata';
+import { Button } from 'react-native';
 
 export type TPaymentByPhonePage = {
-  header: string;
   category: Category;
-  navigate: Function;
+  navigation: { navigate: Function; goBack: Function };
 };
 
 export const PaymentByPhonePage = ({
-  header,
   category,
-  navigate,
+  navigation,
 }: TPaymentByPhonePage) => {
   const [searchQuery, setSearchQuery] = useState('');
 
-  const filteredCategory = category.services.filter(service => {
-    service.service_name.toLowerCase().includes(searchQuery.toLowerCase());
-  });
+  const filteredServices =
+    searchQuery === ''
+      ? category.services
+      : category.services.filter(service => {
+          console.log(service.service_name, searchQuery);
+          return service.service_name
+            .toLowerCase()
+            .includes(searchQuery.toLowerCase());
+        });
+
+  const pressHandler = (category: Category) => {
+    navigation.navigate('paymentdetails', category);
+  };
 
   return (
     <PaymentByPhoneTemplate
-      header={<Typography variant="title">{category.category_name}</Typography>}
+      button={<Button title="Back" onPress={() => navigation.goBack()} />}
+      header={
+        <Typography variant="body20">{category.category_name}</Typography>
+      }
       search={
         <InputItem
           icon={<Icons.SearchIcon />}
-          onChangeText={(text: string) => setSearchQuery(text)}
+          onChangeText={(text: string) => {
+            console.log(text);
+            setSearchQuery(text);
+          }}
           value={searchQuery}
         />
       }
       // search={<InputItem icon={<Icons.SearchIcon />} />}
       menu={
         <PaymentByPhonetList
-          items={category.services.map(service => ({
+          items={filteredServices.map(service => ({
             icon: (
               <Image
                 source={{
@@ -49,8 +64,6 @@ export const PaymentByPhonePage = ({
             onPress: () => {},
             title: service.service_name,
           }))}
-
-          // items={filteredCategory}
         />
       }
     />

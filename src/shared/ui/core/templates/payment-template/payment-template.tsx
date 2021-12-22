@@ -23,11 +23,8 @@ export const PaymentTemplate = ({ header, menu }: TPaymentTemplate) => {
 
   return (
     <Wrapper bottom={bottom} top={top}>
-   
       {header}
-   
       {menu}
-
     </Wrapper>
   );
 };
